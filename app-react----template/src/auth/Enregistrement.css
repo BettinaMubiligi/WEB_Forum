@@ -1,0 +1,32 @@
+body{
+    background-color: lightblue;
+}
+
+form {
+    border: medium solid black;
+    width: 450px;
+    padding: 10px;
+    margin: auto;
+}
+
+.conteneur-grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+    gap: 1em;
+
+}
+
+input[type=reset], input[type=submit] {
+
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+  }
+h1{
+    color: #2929F9;
+    text-shadow: 1px 1px 0px black;
+}
+input,label{
+    width: 100%;
+    margin: 4px 0;
+    border-radius: 5px ;
+}

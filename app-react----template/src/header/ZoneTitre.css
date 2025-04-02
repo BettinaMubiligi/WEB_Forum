@@ -1,0 +1,11 @@
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .project-logo {
+    width: 60px;
+    height: auto;
+  }
+  

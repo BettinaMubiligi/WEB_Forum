@@ -1,0 +1,22 @@
+.filter-form {
+    display: flex;
+    gap: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #121111;
+    border-radius: 4px;
+  }
+  
+  button {
+    color: rgb(5, 6, 6);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: lightcoral;
+  }
+  

@@ -1,0 +1,44 @@
+Dans ce jeu de test, on utilise l’environnement que l’on a créer ( le serveur écoute le port 3001, le site se triuve sur le port http://127.0.0.1:5173/ du localhost et la BDD MongoDB sur mongodb://localhost:27017)
+
+1. Créeer un utilisateur (inscription)
+curl -X POST http://localhost:3001/api/users/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"testuser@example.com","password":"motdepasse"}'
+
+
+2. pour se connecter (login)
+curl -X POST http://localhost:3001/api/users/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"testuser@example.com","password":"motdepasse"}'
+
+
+3. pour poster un message dans le forum ouvert
+curl -X POST http://localhost:3001/api/messages \
+  -H "Content-Type: application/json" \
+  -d '{"content":"Ceci est un message public","authorEmail":"testuser@example.com","authorRole":"Membre","forumType":"open"}'
+
+
+4. poster un message dans le forum fermé (admin)
+curl -X POST http://localhost:3001/api/messages \
+  -H "Content-Type: application/json" \
+  -d '{"content":"Ceci est un message privé","authorEmail":"admin@example.com","authorRole":"admin","forumType":"closed"}'
+
+
+5. Lister tous les messages du forum ouvert
+curl http://localhost:3001/api/messages?forumType=open
+
+6. Lister tous les messages du forum ferme (admin)
+curl http://localhost:3001/api/messages?forumType=closed
+
+
+7. pour tous les messages (admin)
+curl http://localhost:3001/api/messages
+
+8. supprimer un message (il faut remplacer MESSAGE_ID et email)
+curl -X DELETE "http://localhost:3001/api/messages/MESSAGE_ID?authorEmail=testuser@example.com"
+
+9. et lister les demandes d’inscription en attente (admin)
+curl http://localhost:3001/api/admin/pending-users
+
+11. recherche des messages contenant un mot clé (filtrage)
+curl http://localhost:3001/api/messages?forumType=open | grep "motclé"
